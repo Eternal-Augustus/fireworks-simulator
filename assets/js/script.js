@@ -116,7 +116,7 @@ const store = {
 	state: {
 		// will be unpaused in init()
 		paused: true,
-		soundEnabled: false,
+		soundEnabled: true,
 		menuOpen: false,
 		openHelpTopic: null,
 		fullscreen: isFullscreen(),
@@ -801,15 +801,13 @@ const shellNames = Object.keys(shellTypes);
 
 function init() {
 	// Remove loading state
-
 	document.querySelector('.loading-init').remove();
 	appNodes.stageContainer.classList.remove('remove');
-	
-  
-	  // Populate dropdowns
-	  function setOptionsForSelect(node, options) {
-		  node.innerHTML = options.reduce((acc, opt) => acc += `<option value="${opt.value}">${opt.label}</option>`, '');
-	  }
+
+	 // 强制恢复音频上下文
+    if (store.state.soundEnabled) {
+        soundManager.resumeAll();
+    }
 	
 	// Populate dropdowns
 	function setOptionsForSelect(node, options) {
