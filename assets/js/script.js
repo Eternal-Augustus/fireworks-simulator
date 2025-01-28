@@ -801,8 +801,24 @@ const shellNames = Object.keys(shellTypes);
 
 function init() {
 	// Remove loading state
+
 	document.querySelector('.loading-init').remove();
 	appNodes.stageContainer.classList.remove('remove');
+	  // 添加你的名字到页面底部
+	  const footer = document.createElement('div');
+	  footer.style.position = 'fixed';
+	  footer.style.bottom = '10px';
+	  footer.style.right = '10px';
+	  footer.style.color = 'white';
+	  footer.style.fontSize = '14px';
+	  footer.style.opacity = '0.75';
+	  footer.innerHTML = 'Created by <strong>WWB</strong>';
+	  document.body.appendChild(footer);
+  
+	  // Populate dropdowns
+	  function setOptionsForSelect(node, options) {
+		  node.innerHTML = options.reduce((acc, opt) => acc += `<option value="${opt.value}">${opt.label}</option>`, '');
+	  }
 	
 	// Populate dropdowns
 	function setOptionsForSelect(node, options) {
