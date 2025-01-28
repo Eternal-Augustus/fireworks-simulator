@@ -134,20 +134,23 @@
     </div>
 </div>
 <div id="greeting" style="
-    position: fixed; /* 保证固定定位 */
+    position: fixed;
     top: 20%;
     left: 0;
     width: 100%;
+    height: auto; /* 确保高度自适应内容 */
     text-align: center;
     font-size: 2em;
+    font-family: 'Noto Sans', 'Microsoft YaHei', Arial, sans-serif; /* 确保支持中文字体 */
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    z-index: 9999; /* 高优先级，避免被覆盖 */
+    z-index: 9999; /* 确保优先显示 */
     pointer-events: none; /* 禁止鼠标事件 */
     opacity: 1; /* 初始可见 */
     transition: opacity 3s; /* 透明度过渡效果 */
+    overflow: visible; /* 确保内容不会被裁剪 */
 ">
-    辞慕尔尔 烟火年年 福至新年 喜乐无边！<br>
+    辞暮尔尔 烟火年年 福至新年 喜乐无边！<br>
     梁家璇 新年快乐
 </div>
 <!-- partial -->
