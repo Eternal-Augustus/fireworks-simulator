@@ -116,7 +116,7 @@ const store = {
 	state: {
 		// will be unpaused in init()
 		paused: true,
-		soundEnabled: true,
+		soundEnabled: false,
 		menuOpen: false,
 		openHelpTopic: null,
 		fullscreen: isFullscreen(),
@@ -803,12 +803,21 @@ function init() {
 	// Remove loading state
 	document.querySelector('.loading-init').remove();
 	appNodes.stageContainer.classList.remove('remove');
-
-	 // 强制恢复音频上下文
-    if (store.state.soundEnabled) {
-        soundManager.resumeAll();
-    }
 	
+    // 动态显示新年祝福
+    const greeting = document.getElementById('greeting');
+    if (greeting) {
+        // 确保祝福语初始可见
+        greeting.style.opacity = '1';
+        greeting.style.transition = 'opacity 3s';
+
+        // 1秒后开始淡出，3秒后彻底隐藏
+        setTimeout(() => {
+			console.log('设置 opacity 为 0');
+			greeting.style.opacity = '0'; // 透明度逐渐变为 0
+			greeting.style.visibility = 'hidden'; // 设置为不可见但不移除占用空间
+		}, 5000); // 3秒后淡出
+    }
 	// Populate dropdowns
 	function setOptionsForSelect(node, options) {
 		node.innerHTML = options.reduce((acc, opt) => acc += `<option value="${opt.value}">${opt.label}</option>`, '');

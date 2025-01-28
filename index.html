@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+
+
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -129,6 +132,22 @@
             <button type="button" class="help-modal__close-btn">关闭</button>
         </div>
     </div>
+</div>
+<div id="greeting" style="
+    position: fixed; /* 保证固定定位 */
+    top: 20%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 9999; /* 高优先级，避免被覆盖 */
+    pointer-events: none; /* 禁止鼠标事件 */
+    opacity: 1; /* 初始可见 */
+    transition: opacity 3s; /* 透明度过渡效果 */
+">
+    辞慕尔尔 烟火年年 福至新年 喜乐无边！
 </div>
 <!-- partial -->
 <script src='assets/js/fscreen@1.0.1.js'></script>

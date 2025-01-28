@@ -20,6 +20,23 @@ body {
   letter-spacing: 0.06em;
 }
 
+#greeting {
+  animation: pulse 2s infinite;
+  opacity: 1;
+  transition: opacity 3s; /* 确保淡出效果 */
+}
+
+@keyframes pulse {
+  0%, 100% {
+      transform: scale(1);
+      opacity: 1; /* 仅在完全显示时脉冲 */
+  }
+  50% {
+      transform: scale(1.1);
+      opacity: 0.9; /* 限制最小透明度 */
+  }
+}
+
 .hide {
   opacity: 0;
   visibility: hidden;
